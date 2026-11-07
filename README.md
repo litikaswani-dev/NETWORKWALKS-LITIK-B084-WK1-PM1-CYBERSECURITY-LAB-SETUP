@@ -1,28 +1,31 @@
 # 🛡️ Cybersecurity Lab Setup
 
-A beginner-friendly cybersecurity lab environment built using **Kali Linux** and **Oracle VirtualBox**. This project documents the installation, configuration, and verification of a virtual machine for cybersecurity learning and practical exercises.
+A beginner-friendly cybersecurity lab environment built using Kali Linux and Oracle VirtualBox. This project documents the installation, configuration, and verification of a virtual machine for cybersecurity learning and practical exercises.
 
 ## 📌 Project Overview
 
-The goal of this project is to create an isolated virtual environment where cybersecurity tools and networking concepts can be explored safely without making changes to the host operating system.
+The goal of this project is to create a virtual environment where cybersecurity tools and networking concepts can be explored safely without making changes to the host operating system.
 
-This repository documents the initial lab setup, including virtual machine configuration, network configuration, connectivity testing, and evidence screenshots.
+This repository documents the initial lab setup, including virtual machine configuration, network configuration, connectivity testing, shared resources, and supporting evidence.
 
 ## 🧰 Tools & Technologies
 
-- **Kali Linux 2026.3** – Linux distribution for cybersecurity and penetration testing.
+- **Kali Linux 2026.3** – Linux distribution used for cybersecurity and penetration testing.
 - **Oracle VirtualBox** – Virtualization software used to run Kali Linux.
 - **Windows 11** – Host operating system.
 - **VirtualBox NAT Network** – Provides network connectivity to the virtual machine.
-- **Linux Terminal & Windows CMD** – Used for configuration and verification.
+- **Linux Terminal** – Used to configure and test the Kali environment.
+- **Windows Command Prompt (CMD)** – Used to manage and verify VirtualBox network settings.
 
 ## ⚙️ Virtual Machine Configuration
+
+The following configuration was used for the Kali Linux virtual machine.
 
 | Setting | Configuration |
 |---|---|
 | Operating System | Kali Linux 2026.3 (64-bit) |
-| Virtualization | Oracle VirtualBox |
-| RAM | 2048 MB |
+| Virtualization Software | Oracle VirtualBox |
+| RAM | 2048 MB (2 GB) |
 | CPUs | 2 |
 | Network Adapter | NAT Network |
 | NAT Network Name | `NatNetwork` |
@@ -32,75 +35,119 @@ This repository documents the initial lab setup, including virtual machine confi
 
 ## 🌐 Network Configuration
 
-The Kali virtual machine uses a NAT Network named `NatNetwork`.
+The Kali Linux virtual machine uses a NAT Network named `NatNetwork`.
 
 | Network Setting | Value |
 |---|---|
 | Network Address | `10.0.0.0/24` |
-| Kali Static IP | `10.0.0.2/24` |
+| Kali Static IP Address | `10.0.0.2/24` |
 | Default Gateway | `10.0.0.1` |
 | DHCP Server | `10.0.0.254` |
 | DHCP Address Range | `10.0.0.3 – 10.0.0.253` |
-| DNS Servers | `1.1.1.1`, `1.0.0.1` |
+| Primary DNS | `1.1.1.1` |
+| Secondary DNS | `1.0.0.1` |
 
-The Kali virtual machine was assigned a static IP address, while the VirtualBox NAT Network provides DHCP configuration for other devices on the network.
+The Kali virtual machine was assigned a static IP address, while the VirtualBox NAT Network provides DHCP configuration for devices using automatic address assignment.
 
 ## ✅ Connectivity Verification
 
-Network connectivity was tested using the following commands in Kali Linux:
+Network connectivity was tested using the following commands in the Kali Linux terminal.
 
-**1. Check the gateway connection**
+**1. Test connectivity to the default gateway**
+
 ```bash
 ping -c 4 10.0.0.1
 ```
 
-**2. Check internet connectivity using an IP address**
+**2. Test internet connectivity using a public IP address**
+
 ```bash
 ping -c 4 8.8.8.8
 ```
 
-**3. Check DNS resolution and internet connectivity**
+**3. Test DNS resolution and internet connectivity**
+
 ```bash
 ping -c 4 google.com
 ```
 
-All three tests completed successfully, with **4 packets received and 0% packet loss** in each test.
+All three connectivity tests completed successfully:
+
+- Gateway connectivity: Successful
+- Internet connectivity: Successful
+- DNS resolution: Successful
+- Packet loss: 0% across all three tests
 
 ## 📸 Evidence & Screenshots
 
 The following screenshots document the configuration and successful verification of the cybersecurity lab environment.
 
-| Screenshot | Description |
-|---|---|
-| [01-dhcp-configuration.png](01-dhcp-configuration.png) | VirtualBox DHCP configuration |
-| [02-kali-ip-configuration.png](02-kali-ip-configuration.png) | Kali IP address and routing configuration |
-| [03-connectivity-tests.png](03-connectivity-tests.png) | Successful gateway, internet, and DNS connectivity tests |
-| [04-kali-snapshot.png](04-kali-snapshot.png) | VirtualBox snapshot of the configured Kali VM |
-| [05a-nat-network-dhcp.png](05a-nat-network-dhcp.png) | Detailed NAT Network DHCP configuration |
-| [05b-1-kali-vm-hardware-network-memory.png](05b-1-kali-vm-hardware-network-memory.png) | Virtual machine RAM configuration |
-| [05b-1-kali-vm-hardware-network-nic1.png](05b-1-kali-vm-hardware-network-nic1.png) | Virtual machine network adapter configuration |
-| [05b-1-kali-vm-hardware-network-numberofcpus.png](05b-1-kali-vm-hardware-network-numberofcpus.png) | Virtual machine CPU configuration |
-| [05b-2-kali-vm-integration.png](05b-2-kali-vm-integration.png) | Shared clipboard, drag and drop, and shared folder configuration |
+### 1. DHCP Configuration
+
+![DHCP Configuration](01-dhcp-configuration.png)
+
+### 2. Kali IP Address and Routing Configuration
+
+![Kali IP Configuration](02-kali-ip-configuration.png)
+
+### 3. Network Connectivity Tests
+
+![Connectivity Tests](03-connectivity-tests.png)
+
+All three connectivity tests completed successfully with 0% packet loss.
+
+### 4. Virtual Machine Snapshot
+
+![Kali Snapshot](04-kali-snapshot.png)
+
+A snapshot named `Week1 - Working Lab Setup` was created to preserve the initial working configuration.
+
+### 5. NAT Network DHCP Configuration
+
+![NAT Network DHCP](05a-nat-network-dhcp.png)
+
+### 6. Virtual Machine Hardware and Network Configuration
+
+**Memory Allocation (2048 MB)**
+
+![Kali VM Memory](05b-1-kali-vm-hardware-network-memory.png)
+
+**CPU Allocation (2 CPUs)**
+
+![Kali VM CPUs](05b-1-kali-vm-hardware-network-numberofcpus.png)
+
+**Network Adapter Configuration**
+
+![Kali VM Network Adapter](05b-1-kali-vm-hardware-network-nic1.png)
+
+### 7. Shared Resources and Integration
+
+![Kali VM Integration](05b-2-kali-vm-integration.png)
+
+This confirms that bidirectional clipboard, drag and drop, and the shared Downloads folder are configured.
 
 ## 💾 Virtual Machine Snapshot
 
-A VirtualBox snapshot named **`Week1 - Working Lab Setup`** was created after completing the initial configuration.
+A VirtualBox snapshot named `Week1 - Working Lab Setup` was created after completing the initial configuration.
 
 This snapshot provides a restore point that can be used to return the virtual machine to its working state if future experiments cause configuration issues.
 
 ## 📁 Repository Structure
 
+All screenshots and the README file are stored in the root directory of the repository.
+
 ```text
-cybersecurity-lab-setup/
+NETWORKWALKS-LITIK-B084-WK1-PM1-CYBERSECURITY-LAB-SETUP/
 │
-├── screenshots/
-│   ├── 01-dhcp-configuration.png
-│   ├── 02-kali-ip-configuration.png
-│   ├── 03-connectivity-tests.png
-│   ├── 04-kali-snapshot.png
-│   ├── 05a-nat-network-dhcp.png
-│   ├── 05b-1-kali-vm-hardware-network.png
-│   └── 05b-2-kali-vm-integration.png
+├── 01-dhcp-configuration.png
+├── 02-kali-ip-configuration.png
+├── 03-connectivity-tests.png
+├── 04-kali-snapshot.png
+├── 05a-nat-network-dhcp.png
+├── 05b-1-kali-vm-hardware-network-memory.png
+├── 05b-1-kali-vm-hardware-network-nic1.png
+├── 05b-1-kali-vm-hardware-network-numberofcpus.png
+├── 05b-2-kali-vm-integration.png
 │
 └── README.md
 ```
@@ -109,24 +156,31 @@ cybersecurity-lab-setup/
 
 Through this initial setup, I gained practical experience with:
 
-- Setting up and configuring a Kali Linux virtual machine.
+- Installing and configuring a Kali Linux virtual machine.
 - Understanding virtualization and virtual machine resources.
 - Configuring NAT networking in VirtualBox.
 - Assigning a static IP address and understanding DHCP.
 - Understanding default gateways and DNS servers.
 - Testing network connectivity using Linux commands.
 - Configuring shared folders between a host and guest operating system.
+- Configuring VirtualBox integration features.
 - Creating and managing virtual machine snapshots.
 
 ## 🚀 Future Work
 
-This repository will serve as the foundation for future cybersecurity lab exercises, including networking, reconnaissance, vulnerability assessment, and other practical security concepts.
+This repository will serve as the foundation for future cybersecurity lab exercises, including:
+
+- Network reconnaissance.
+- Network scanning and enumeration.
+- Vulnerability assessment.
+- Practical security testing.
+- Further exploration of cybersecurity tools and concepts.
 
 ## 📚 References
 
 - [Kali Linux Official Website](https://www.kali.org/)
 - [Kali Linux Documentation](https://www.kali.org/docs/)
-- [Kali Linux in VirtualBox](https://www.kali.org/docs/virtualization/install-virtualbox-guest-vm/)
+- [Kali Linux Installation Guide](https://www.kali.org/docs/virtualization/install-virtualbox-guest-vm/)
 - [Oracle VirtualBox](https://www.virtualbox.org/)
 
 ---
