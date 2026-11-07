@@ -68,17 +68,19 @@ All three tests completed successfully, with **4 packets received and 0% packet 
 
 ## 📸 Evidence & Screenshots
 
-The `screenshots/` directory contains evidence of the lab configuration and successful verification.
+The following screenshots document the configuration and successful verification of the cybersecurity lab environment.
 
 | Screenshot | Description |
 |---|---|
-| `01-dhcp-configuration.png` | VirtualBox DHCP configuration |
-| `02-kali-ip-configuration.png` | Kali IP address and routing configuration |
-| `03-connectivity-tests.png` | Successful gateway, internet, and DNS connectivity tests |
-| `04-kali-snapshot.png` | VirtualBox snapshot of the configured Kali VM |
-| `05a-nat-network-dhcp.png` | Detailed NAT Network DHCP configuration |
-| `05b-1-kali-vm-hardware-network.png` | VM hardware and network settings |
-| `05b-2-kali-vm-integration.png` | Shared clipboard, drag and drop, and shared folder settings |
+| [01-dhcp-configuration.png](01-dhcp-configuration.png) | VirtualBox DHCP configuration |
+| [02-kali-ip-configuration.png](02-kali-ip-configuration.png) | Kali IP address and routing configuration |
+| [03-connectivity-tests.png](03-connectivity-tests.png) | Successful gateway, internet, and DNS connectivity tests |
+| [04-kali-snapshot.png](04-kali-snapshot.png) | VirtualBox snapshot of the configured Kali VM |
+| [05a-nat-network-dhcp.png](05a-nat-network-dhcp.png) | Detailed NAT Network DHCP configuration |
+| [05b-1-kali-vm-hardware-network-memory.png](05b-1-kali-vm-hardware-network-memory.png) | Virtual machine RAM configuration |
+| [05b-1-kali-vm-hardware-network-nic1.png](05b-1-kali-vm-hardware-network-nic1.png) | Virtual machine network adapter configuration |
+| [05b-1-kali-vm-hardware-network-numberofcpus.png](05b-1-kali-vm-hardware-network-numberofcpus.png) | Virtual machine CPU configuration |
+| [05b-2-kali-vm-integration.png](05b-2-kali-vm-integration.png) | Shared clipboard, drag and drop, and shared folder configuration |
 
 ## 💾 Virtual Machine Snapshot
 
